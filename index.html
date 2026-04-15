@@ -139,31 +139,44 @@
         /* Countdown Rediseñado */
         .countdown {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 40px;
             background: var(--soft-pink);
-            padding: 15px;
+            padding: 20px 10px;
             border-radius: 15px;
+            width: 100%;
         }
 
         .count-box {
             display: flex;
             flex-direction: column;
+            flex: 1;
         }
 
         .count-num {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--deep-rose);
+            line-height: 1;
         }
 
         .count-lab {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--rose-gold);
             font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .count-sep {
+            color: var(--rose-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            padding-bottom: 15px;
         }
 
         /* Secciones con estilo de tarjeta sutil */
@@ -281,8 +294,11 @@
 
             <div class="countdown" id="timer">
                 <div class="count-box"><span class="count-num" id="d">00</span><span class="count-lab">Días</span></div>
+                <div class="count-sep">.</div>
                 <div class="count-box"><span class="count-num" id="h">00</span><span class="count-lab">Horas</span></div>
+                <div class="count-sep">.</div>
                 <div class="count-box"><span class="count-num" id="m">00</span><span class="count-lab">Mins</span></div>
+                <div class="count-sep">.</div>
                 <div class="count-box"><span class="count-num" id="s">00</span><span class="count-lab">Segs</span></div>
             </div>
 
