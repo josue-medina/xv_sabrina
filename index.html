@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Sabrina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose-gold: #b76e79;
+            --deep-rose: #8e4e57;
+            --soft-pink: #fce4ec;
+            --accent-pink: #f1b3c4;
+            --gold-metallic: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fcf6ba, #aa771c);
+            --bg-gradient: linear-gradient(180deg, #fffdfb 0%, #fdf2f4 100%);
+            --card-shadow: 0 15px 45px rgba(183, 110, 121, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Playfair Display', serif;
+            padding: 30px 15px;
+            color: var(--deep-rose);
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 40px 25px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(183, 110, 121, 0.1);
+        }
+
+        /* Adornos florales en las esquinas */
+        .container::before, .container::after {
+            content: '✿';
+            position: absolute;
+            font-size: 3rem;
+            color: var(--soft-pink);
+            opacity: 0.4;
+            z-index: 0;
+        }
+        .container::before { top: -10px; left: -10px; }
+        .container::after { bottom: -10px; right: -10px; }
+
+        .content-wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 1rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 5rem;
+            background: linear-gradient(to bottom, #b76e79, #8e4e57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0 25px 0;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.05));
+        }
+
+        .photo-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2/3;
+            margin-bottom: 35px;
+            padding: 10px;
+            background: white;
+            border-radius: 200px 200px 30px 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 200px 200px 30px 30px;
+            padding: 3px;
+            background: var(--gold-metallic);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 190px 190px 20px 20px;
+        }
+
+        .date-container {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .date-text {
+            display: inline-block;
+            padding: 12px 20px;
+            border-top: 2px solid var(--accent-pink);
+            border-bottom: 2px solid var(--accent-pink);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--deep-rose);
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        /* Countdown Rediseñado */
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            background: var(--soft-pink);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .count-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .count-num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--deep-rose);
+        }
+
+        .count-lab {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--rose-gold);
+            font-weight: 600;
+        }
+
+        /* Secciones con estilo de tarjeta sutil */
+        .info-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .label-italic {
+            font-style: italic;
+            font-size: 1rem;
+            color: #9e9e9e;
+            margin-bottom: 8px;
+        }
+
+        .main-text {
+            font-size: 1.3rem;
+            color: var(--deep-rose);
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .title-gold {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--rose-gold);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Botones mejorados */
+        .btn-custom {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 1.5px solid var(--rose-gold);
+            color: var(--rose-gold);
+        }
+
+        .btn-confirm {
+            background: linear-gradient(135deg, #b76e79 0%, #8e4e57 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(142, 78, 87, 0.3);
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .welcome-msg {
+            background: rgba(252, 228, 236, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            font-style: italic;
+            margin: 40px 0;
+            border-left: 3px solid var(--accent-pink);
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--gold-metallic);
+            width: 50%;
+            margin: 40px auto;
+            opacity: 0.5;
+        }
+
+        footer {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3rem;
+            margin-top: 30px;
+            color: var(--rose-gold);
+        }
+
+        .kiki-link {
+            display: block;
+            margin-top: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            color: #ccc;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content-wrap">
+            <header>
+                <h1>Mis XV Años</h1>
+                <div class="name">Sabrina</div>
+            </header>
+
+            <div class="photo-frame">
+                <img src="https://images.unsplash.com/photo-1518049362265-d5b2a6467637?auto=format&fit=crop&q=80&w=800" alt="Sabrina">
+            </div>
+
+            <div class="date-container">
+                <div class="date-text">Sábado 20 . Junio . 2026</div>
+            </div>
+
+            <div class="countdown" id="timer">
+                <div class="count-box"><span class="count-num" id="d">00</span><span class="count-lab">Días</span></div>
+                <div class="count-box"><span class="count-num" id="h">00</span><span class="count-lab">Horas</span></div>
+                <div class="count-box"><span class="count-num" id="m">00</span><span class="count-lab">Mins</span></div>
+                <div class="count-box"><span class="count-num" id="s">00</span><span class="count-lab">Segs</span></div>
+            </div>
+
+            <div class="info-section">
+                <div class="label-italic">Con la bendición de mis papás:</div>
+                <div class="main-text">Ivonne Martínez & Gilberto Tzintzún</div>
+            </div>
+
+            <div class="info-section">
+                <div class="label-italic">Y mis padrinos:</div>
+                <div class="main-text">Ana María Tapia & Fernando Guerrero</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-section">
+                <div class="title-gold">Ceremonia Religiosa</div>
+                <div class="main-text">Templo de Nuestra Señora de Guadalupe<br>14:00 hrs</div>
+                <a href="https://maps.google.com" target="_blank" class="btn-custom btn-outline">Ver ubicación</a>
+            </div>
+
+            <div class="welcome-msg">
+                "Tu presencia es clave para mi gran día. Por favor, llega a tiempo para compartir cada momento especial"
+            </div>
+
+            <div class="info-section">
+                <div class="title-gold">Recepción</div>
+                <div class="main-text">Salón Sol Campestre<br>16:30 hrs</div>
+                <a href="https://maps.google.com" target="_blank" class="btn-custom btn-outline">Ver ubicación</a>
+            </div>
+
+            <div class="info-section" style="margin-top: 40px;">
+                <div class="title-gold" style="margin-bottom: 20px;">Confirmar Asistencia</div>
+                <a href="https://wa.me/your-number" target="_blank" class="btn-custom btn-confirm">Confirmar Asistencia</a>
+            </div>
+
+            <footer>¡Te espero!</footer>
+            <a href="https://www.facebook.com/profile.php?id=61575459699823" target="_blank" class="kiki-link">invitaciones Kiki</a>
+        </div>
+    </div>
+
+    <script>
+        const end = new Date('July 20, 2026 14:00:00').getTime();
+        function update() {
+            const now = new Date().getTime();
+            const diff = end - now;
+            if (diff <= 0) return;
+            document.getElementById('d').innerText = Math.floor(diff / 86400000).toString().padStart(2,'0');
+            document.getElementById('h').innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2,'0');
+            document.getElementById('m').innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2,'0');
+            document.getElementById('s').innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2,'0');
+        }
+        setInterval(update, 1000);
+        update();
+    </script>
+</body>
+</html>
