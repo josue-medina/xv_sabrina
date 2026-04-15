@@ -45,6 +45,7 @@
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(183, 110, 121, 0.1);
+            text-align: center;
         }
 
         /* Adornos florales en las esquinas */
@@ -62,6 +63,9 @@
         .content-wrap {
             position: relative;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header h1 {
@@ -70,6 +74,7 @@
             text-transform: uppercase;
             color: var(--rose-gold);
             margin-bottom: 5px;
+            width: 100%;
         }
 
         .name {
@@ -80,6 +85,7 @@
             -webkit-text-fill-color: transparent;
             margin: 10px 0 25px 0;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.05));
+            width: 100%;
         }
 
         .photo-frame {
