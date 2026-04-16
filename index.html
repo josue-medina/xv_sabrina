@@ -87,6 +87,63 @@
             color: var(--deep-rose);
         }
 
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 600px;
+            background-image: url('images-2.jpeg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            filter: brightness(1.1);
+            z-index: 0;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+        }
+
+        /* Falling Roses Animation */
+        .falling-roses {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .rose-petal {
+            position: absolute;
+            display: block;
+            width: auto;
+            height: auto;
+            opacity: 0;
+            animation: fall linear infinite;
+            filter: drop-shadow(0 0 5px rgba(252, 228, 236, 0.8));
+            user-select: none;
+            font-size: 20px;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(1000px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         .container {
             max-width: 400px;
             width: 100%;
@@ -343,6 +400,20 @@
     <audio id="bgMusic" src="mj.mp3" loop></audio>
 
     <div class="container">
+        <div class="falling-roses">
+            <!-- Falling Rose Petals (Emojis) -->
+            <span class="rose-petal" style="left: 10%; animation-duration: 10s; animation-delay: 0s; font-size: 25px;">🌸</span>
+            <span class="rose-petal" style="left: 25%; animation-duration: 12s; animation-delay: 2s; font-size: 20px;">🌸</span>
+            <span class="rose-petal" style="left: 40%; animation-duration: 8s; animation-delay: 4s; font-size: 28px;">🌸</span>
+            <span class="rose-petal" style="left: 55%; animation-duration: 15s; animation-delay: 1s; font-size: 22px;">🌸</span>
+            <span class="rose-petal" style="left: 70%; animation-duration: 11s; animation-delay: 3s; font-size: 26px;">🌸</span>
+            <span class="rose-petal" style="left: 85%; animation-duration: 9s; animation-delay: 5s; font-size: 18px;">🌸</span>
+            <span class="rose-petal" style="left: 15%; animation-duration: 13s; animation-delay: 6s; font-size: 24px;">🌸</span>
+            <span class="rose-petal" style="left: 45%; animation-duration: 14s; animation-delay: 2s; font-size: 30px;">🌸</span>
+            <span class="rose-petal" style="left: 80%; animation-duration: 10s; animation-delay: 7s; font-size: 22px;">🌸</span>
+            <span class="rose-petal" style="left: 5%; animation-duration: 12s; animation-delay: 4s; font-size: 27px;">🌸</span>
+        </div>
+        <div class="hero-bg"></div>
         <div class="content-wrap">
             <header>
                 <h1>Mis XV Años</h1>
@@ -395,7 +466,25 @@
                 <a href="https://maps.app.goo.gl/FypjJdwuRCSLRnMbA" target="_blank" class="btn-custom btn-outline">Ver ubicación</a>
             </div>
 
-            <div class="info-section" style="margin-top: 40px;">
+            <div class="divider"></div>
+
+            <div class="info-section">
+                <div class="title-gold">Código de Vestimenta</div>
+                <div class="main-text">Formal-Elegante</div>
+                <div class="label-italic" style="margin-top: 5px; color: var(--deep-rose); font-weight: 600;">(Excepto rojo / vino)</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-section">
+                <div class="main-text" style="font-size: 1.1rem; font-style: italic;">
+                    "Tu presencia es lo más importante para mí en este día tan especial. Pero si deseas sumar un detalle, habrá lluvia de sobres. Gracias por ser parte de este momento."
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-section" style="margin-top: 20px;">
                 <div class="title-gold" style="margin-bottom: 20px;">Confirmar Asistencia</div>
                 <a href="https://wa.me/524431942832?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Sabrina" target="_blank" class="btn-custom btn-confirm">Confirmar Asistencia</a>
             </div>
